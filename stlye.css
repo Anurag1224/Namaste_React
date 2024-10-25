@@ -1,3 +1,89 @@
-#heading{
-    color: red;
+.header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+
+}
+.logo {
+    width: 100px;
+}
+
+.cart{
+    width: 20px;
+   
+}
+
+.nav-items > ul {
+    display:flex;
+    padding: 0px 20px;
+    list-style-type: none;
+}
+
+.nav-items > ul > li {
+    font-size: 18px;
+    padding: 10px;
+    margin: 10px;
+}
+.body{
+    border: 1px solid black;
+    padding: 5px;
+}
+.search {
+    padding: 5px;
+}
+.search-btn {
+    cursor: pointer;
+}
+.search-top-rated-restaurant-btn{
+    margin-left: 5px;
+}
+
+.searchBox {
+    margin-right : 5px;
+}
+
+.res-card {
+    width: 216px;
+    margin: 10px;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid rgb(40, 40, 39);
+}
+.res-card:hover {
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.res-image {
+    width: 100%;
+    height: 50%;
+    border-radius: 5px;
+    
+}
+
+.res-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.shimmer-card {
+    background-color: #f0f0f0;
+    margin: 20px;
+    height: 400px;
+    width: 216px;
+}
+.login-btn{
+    height: fit-content;
+    width: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 20px;
+    border-radius: 4px;
+    cursor: pointer;
 }
