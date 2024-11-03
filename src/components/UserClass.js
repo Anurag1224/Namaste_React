@@ -1,44 +1,52 @@
 import React from "react";
 
 class UserClass extends React.Component {
-
-    constructor(props){
-        super(props);
-        this.state = {
-            count:0,
-            count1:0
-
+  constructor(props) {
+    super(props);
+    this.state = {
+        userInfo: {
+            name: "Dummy",
+            location: "Default",
+            avatar_url: "https://dummy_photo"
         }
-        console.log(this.props.name + " constructor");
-    }
+    };
+    console.log(this.props.name1 + " constructor");
 
-    componentDidMount(){
-        console.log(this.props.name +  " componentDidMount");
-    }
+        
+  }
 
-    render() {
+  async componentDidMount() {
+    console.log(this.props.name1 +  " componentDidMount");
+    const data = await fetch("  https://api.github.com/users/anurag1224");
+    const json = await data.json();
+    
+    this.setState({
+        userInfo: json,
+    });
+  }
 
-        const {name,address} = this.props;
-        const {count} = this.state;
-        console.log(this.props.name + " render")
+  componentDidUpdate(){
+    console.log(this.props.name1 + "Component did update is called");
+  }
 
-        return (
-            <div className="user-card">
-                <h4>Count : {count}</h4>
-                <button onClick={()=>{
-                    this.setState({
-                        count: this.state.count + 1,
-                
-                    });
-                    
-                }}>Count Increase</button>
-                
-                <h2>Name : {name}</h2>
-                <h3>Address : {address}</h3>
-                <h3>Contact : @anurag1224</h3>
-            </div>
-        );
-    }
+  componentWillUnmount(){
+    console.log("Component Will Unmount is called");
+  }
+
+  render() {
+    
+    const { name, location,login, avatar_url } = this.state.userInfo;
+    console.log(this.props.name1 + " render")
+   
+    return (
+      <div className="user-card">
+        <img src={avatar_url}/>
+        <h2>Name : {name}</h2>
+        <h3>Address : {location}</h3>
+        <h3>Contact : {login}</h3>
+      </div>
+    );
+  }
 }
 
-export default UserClass; 
+export default UserClass;
