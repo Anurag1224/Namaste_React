@@ -1,9 +1,10 @@
-import RestaurantCard from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserInfoContext from "../utils/UserInfoContext";
 
 const Body = () => {
   const [listOfRestaurant, setlistOfRestaurant] = useState([]);
@@ -12,7 +13,10 @@ const Body = () => {
 
   const [searchText, setSearchText] = useState("");
 
-  console.log("body rendered");
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+
+  // console.log("body rendered");
+  // console.log(listOfRestaurant);
 
   useEffect(() => {
     fetchData();
@@ -24,7 +28,7 @@ const Body = () => {
 
       const json = await data.json();
 
-      console.log(json);
+      // console.log(json);
 
       setlistOfRestaurant(
         json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
@@ -49,13 +53,15 @@ const Body = () => {
       </h1>
     );
 
+  const {loggedInUser,setUserName} = useContext(UserInfoContext);  
+
   return listOfRestaurant.length === 0 ? (
     <Shimmer /> // conditional rendering based on ternary operator
   ) : (
     <div className="body">
-      <div className="search">
+      <div className="m-2 p-2 flex flex-wrap items-center">
         <input
-          className="searchBox"
+          className="h-6 border border-solid border-black px-2"
           type="search"
           value={searchText}
           onChange={(e) => {
@@ -63,9 +69,9 @@ const Body = () => {
           }}
         />
         <button
-          className="search-btn"
+          className="m-2 px-2 bg-gray-600 y-200 text-white font-medium rounded-md hover:bg-gray-500 "
           onClick={() => {
-            console.log(searchText);
+            // console.log(searchText);
 
             const filteredRestaurant = listOfRestaurant.filter((res) =>
               res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -77,7 +83,7 @@ const Body = () => {
           Search
         </button>
         <button
-          className="search-top-rated-restaurant-btn"
+          className="m-2 px-2 bg-gray-600 y-200 text-white font-medium rounded-md hover:bg-gray-500 "
           onClick={() => {
             const filteredList = listOfRestaurant.filter(
               (res) => res.info.avgRating > 4.3
@@ -87,14 +93,25 @@ const Body = () => {
         >
           Top Rated Restaurant
         </button>
+
+        <div className="m-2 p-2 flex flex-wrap items-center">
+          <label className="font-medium px-2" >UserName  </label>
+          <input className="border border-solid border-black px-2" value={loggedInUser} onChange={(e) => {
+            setUserName(e.target.value)
+          }}></input>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap bg-white justify-evenly">
         {filteredRestaurants.map((restaurant) => (
           <Link
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            <RestaurantCard resData={restaurant} />
+            {restaurant.info.aggregatedDiscountInfoV3 ? (
+              <RestaurantCardPromoted resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
