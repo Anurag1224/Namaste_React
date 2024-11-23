@@ -13,7 +13,7 @@ let Header = () => {
   const {loggedInUser} = useContext(UserInfoContext);
 
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+  // console.log(cartItems);
 
   return (
     <div className = "flex justify-between bg-pink-100 shadow-lg m-2 sm:bg-orange-100 lg:bg-green-200">
@@ -32,13 +32,13 @@ let Header = () => {
             <Link to = "/about">About Us</Link>
           </li>
           <li className="px-2  text-black font-medium ">
-            <Link to = "/contact">Contact Us</Link>
+            <Link to = "/contactUs">Contact Us</Link>
           </li>
           <li className="px-2  text-black font-medium ">
             <Link to = "/grocery">Grocery</Link>
           </li>
           <li className="px-2   text-black font-bold flex ">
-            <Link to = "/cart"><img className="w-5 pt-1 "  src={CART_LOGO_URL} alt="Logo"></img> </Link> ( {cartItems.length} items ) 
+            <Link to = "/cart"><img className="w-5 pt-1 "  src={CART_LOGO_URL} alt="Cart"></img> </Link> ( {cartItems.length} items ) 
           </li> 
           <button
             className=" px-2 bg-pink-300 text-black font-medium rounded-md shadow-sm hover:bg-pink-200"

@@ -1,0 +1,71 @@
+{
+    "info": {
+        "id": "363846",
+        "name": "LunchBox - Meals and Thalis",
+        "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/10/16/1fbb6614-afb3-4ae0-b68d-0b1e30667559_363846.jpg",
+        "locality": "HB Road",
+        "areaName": "Kokar",
+        "costForTwo": "₹200 for two",
+        "cuisines": [
+            "Biryani",
+            "North Indian",
+            "Punjabi",
+            "Healthy Food",
+            "Desserts",
+            "Beverages"
+        ],
+        "avgRating": 4.5,
+        "parentId": "4925",
+        "avgRatingString": "4.5",
+        "totalRatingsString": "3.8K+",
+        "sla": {
+            "deliveryTime": 21,
+            "lastMileTravel": 1.1,
+            "serviceability": "SERVICEABLE",
+            "slaString": "20-25 mins",
+            "lastMileTravelString": "1.1 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2024-11-23 23:59:00",
+            "opened": true
+        },
+        "badges": {},
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {},
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "ITEMS",
+            "subHeader": "AT ₹159"
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "externalRatings": {
+            "aggregatedRating": {
+                "rating": "--"
+            }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+    },
+    "analytics": {
+        "context": "seo-data-f8b990fa-7020-4015-8b17-f2417ee41a7c"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/city/ranchi/lunchbox-meals-and-thalis-hb-road-kokar-rest363846",
+        "type": "WEBLINK"
+    }
+}

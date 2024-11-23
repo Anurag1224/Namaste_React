@@ -48,9 +48,11 @@ const Body = () => {
 
   if (onlineStatus === false)
     return (
-      <h1>
-        Looks Like You're Offline !! Please Check Your Internet Connection{" "}
-      </h1>
+      <div className="w-6/12 m-auto shadow-lg bg-amber-100 p-4 content-center">
+        <h1 className = "m-5 text-center text-xl font-medium">
+          Looks Like You're Offline !! Please Check Your Internet Connection
+        </h1>
+      </div>
     );
 
   const {loggedInUser,setUserName} = useContext(UserInfoContext);  
@@ -63,6 +65,7 @@ const Body = () => {
         <input
           className="h-6 border border-solid border-black px-2"
           type="search"
+          data-testid = "searchInput"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
